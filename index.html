@@ -14,43 +14,50 @@
 </head>
 
 <body>
-<!-- Bố cục tổng thể cho phần giới thiệu -->
-<div>
 
-    <!-- Dòng 1: Tên (khối riêng) -->
-    <p class="name" style="text-align:left; font-size:32px; margin-bottom:10px;">Trong Duc Nguyen</p>
+<!-- BỘ KHUNG BÊN NGOÀI ĐỂ GIỚI HẠN CHIỀU RỘNG VÀ CĂN GIỮA TRANG -->
+<table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+        <td style="padding:20px; padding-top:40px;">
 
-    <!-- Dòng 2: Tiêu đề "About" (khối riêng) -->
-    <h2 style="margin-bottom: 10px;">About</h2>
+            <!-- TOÀN BỘ NỘI DUNG CỦA BẠN SẼ NẰM TRONG ĐÂY -->
+            <!-- Bố cục tổng thể cho phần giới thiệu -->
+            <div>
 
-    <!-- Dòng 3: Bố cục Flexbox chỉ cho nội dung và ảnh -->
-    <div style="display: flex; width: 100%; align-items: stretch; gap: 20px;">
+                <!-- Dòng 1: Tên (khối riêng) -->
+                <p class="name" style="text-align:left; font-size:32px; margin-bottom:10px;">Trong Duc Nguyen</p>
 
-        <!-- Cột thông tin giới thiệu (75%) - BÂY GIỜ BẮT ĐẦU BẰNG ĐOẠN VĂN BẢN -->
-        <div style="flex: 3; display: flex; flex-direction: column;">
-            <p>
-                Hi! I am a PhD student in Computer Science at <strong><a href="https://vinuni.edu.vn/">VinUniversity</a></strong>, where my research focuses on developing <strong>Foundation Models for Healthcare</strong>. I am passionate about leveraging large-scale AI to solve critical challenges in medical imaging and diagnostics.
-            </p>
-            <p>
-                I received my Bachelor of Science in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science</a>, graduating <strong>1st-rank</strong> in my cohort. My background includes experience as an AI Engineer and Research Assistant, where I worked on various computer vision and deep learning applications before focusing on AI for healthcare.
-            </p>
-            <p style="margin-top: auto;"> <!-- Đẩy phần này xuống dưới cùng -->
-                My academic profiles: <br>
-                <a href="mailto:nggtduc@gmail.com">Email</a>  /  
-                <a href="https://www.linkedin.com/in/ducnguyen4803/">LinkedIn</a>  /  
-                <a href="data/CV_NguyenTrongDuc.pdf">CV</a>  /  
-                <a href="https://github.com/nttrduc">Github</a>
-                <!-- / <a href="YOUR_GOOGLE_SCHOLAR_LINK">Google Scholar</a> -->
-            </p>
-        </div>
+                <!-- Dòng 2: Tiêu đề "About" (khối riêng) -->
+                <h2 style="margin-bottom: 10px;">About</h2>
 
-        <!-- Cột ảnh đại diện (25%) -->
-        <div style="flex: 1;">
-            <img src="images/avatar.jpg" alt="profile photo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-        </div>
+                <!-- Dòng 3: Bố cục Flexbox chỉ cho nội dung và ảnh -->
+                <div style="display: flex; width: 100%; align-items: stretch; gap: 20px;">
 
-    </div>
-</div>
+                    <!-- Cột thông tin giới thiệu (75%) - BÂY GIỜ BẮT ĐẦU BẰNG ĐOẠN VĂN BẢN -->
+                    <div style="flex: 3; display: flex; flex-direction: column;">
+                        <p>
+                            Hi! I am a PhD student in Computer Science at <strong><a href="https://vinuni.edu.vn/">VinUniversity</a></strong>, where my research focuses on developing <strong>Foundation Models for Healthcare</strong>. I am passionate about leveraging large-scale AI to solve critical challenges in medical imaging and diagnostics.
+                        </p>
+                        <p>
+                            I received my Bachelor of Science in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science</a>, graduating <strong>1st-rank</strong> in my cohort. My background includes experience as an AI Engineer and Research Assistant, where I worked on various computer vision and deep learning applications before focusing on AI for healthcare.
+                        </p>
+                        <p style="margin-top: auto;"> <!-- Đẩy phần này xuống dưới cùng -->
+                            My academic profiles: <br>
+                            <a href="mailto:nggtduc@gmail.com">Email</a>  /  
+                            <a href="https://www.linkedin.com/in/ducnguyen4803/">LinkedIn</a>  /  
+                            <a href="data/CV_NguyenTrongDuc.pdf">CV</a>  /  
+                            <a href="https://github.com/nttrduc">Github</a>
+                            <!-- / <a href="YOUR_GOOGLE_SCHOLAR_LINK">Google Scholar</a> -->
+                        </p>
+                    </div>
+
+                    <!-- Cột ảnh đại diện (25%) -->
+                    <div style="flex: 1;">
+                        <img src="images/avatar.jpg" alt="profile photo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
+
+                </div>
+            </div>
             <hr>
 
             <!-- ======================= RESEARCH INTERESTS ======================= -->
@@ -94,7 +101,7 @@
                     <strong>[S.1]</strong> <strong>Trong Duc Nguyen</strong>, Thanh Ha Do. Query-Guided Support Modulation for Efficient Few-Shot Medical Image Segmentation Without Manual Annotation. <em>Submitted to Computer Methods and Programs in Biomedicine.</em>
                 </li>
             </ul>
-            
+
         </td>
     </tr>
 </tbody></table>
