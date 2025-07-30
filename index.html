@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -11,55 +13,77 @@
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     
+    <!-- ======================= THÊM CSS ĐỂ LÀM RESPONSIVE ======================= -->
+    <style>
+        /* CSS cho bố cục mặc định (máy tính) */
+        .profile-container {
+            display: flex;
+            width: 100%;
+            align-items: flex-start; /* Căn đỉnh */
+            gap: 20px; /* Khoảng cách giữa 2 cột */
+        }
+
+        .profile-text {
+            flex: 3; /* Chiếm ~75% chiều rộng */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-image {
+            flex: 1; /* Chiếm ~25% chiều rộng */
+        }
+
+        /* CSS cho màn hình nhỏ (điện thoại, max-width: 768px) */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column; /* Chuyển bố cục sang dạng cột (xếp chồng) */
+            }
+        }
+    </style>
+    
 </head>
 
 <body>
 
-<!-- BỘ KHUNG BÊN NGOÀI ĐỂ GIỚI HẠN CHIỀU RỘNG VÀ CĂN GIỮA TRANG -->
 <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr style="padding:0px">
         <td style="padding:20px; padding-top:40px;">
 
-            <!-- TOÀN BỘ NỘI DUNG CỦA BẠN SẼ NẰM TRONG ĐÂY -->
             <!-- Bố cục tổng thể cho phần giới thiệu -->
-<!-- Bố cục tổng thể cho phần giới thiệu -->
-<div>
-    <!-- Dòng 1: Tên (khối riêng) -->
-    <p class="name" style="text-align:left; font-size:32px; margin-bottom:10px;">Trong Duc Nguyen</p>
+            <div>
+                <!-- Dòng 1: Tên (khối riêng) -->
+                <p class="name" style="text-align:left; font-size:32px; margin-bottom:10px;">Trong Duc Nguyen</p>
 
-    <!-- Dòng 2: Tiêu đề "About" (khối riêng) -->
-    <h2 style="margin-bottom: 10px;">About</h2>
+                <!-- Dòng 2: Tiêu đề "About" (khối riêng) -->
+                <h2 style="margin-bottom: 10px;">About</h2>
 
-    <!-- Dòng 3: Bố cục Flexbox ĐÃ CHỈNH SỬA -->
-    <!-- Thay đổi quan trọng: align-items: flex-start -->
-    <div style="display: flex; width: 100%; align-items: flex-start; gap: 20px;">
+                <!-- Dòng 3: Bố cục Flexbox đã được thêm class -->
+                <div class="profile-container">
 
-        <!-- Cột thông tin giới thiệu (75%) -->
-        <div style="flex: 3; display: flex; flex-direction: column;">
-            <p>
-                Hi! I am a PhD student in Computer Science at <strong><a href="https://vinuni.edu.vn/">VinUniversity</a></strong>, where my research focuses on developing <strong>Foundation Models for Healthcare</strong>. I am passionate about leveraging large-scale AI to solve critical challenges in medical imaging and diagnostics.
-            </p>
-            <p>
-                I received my Bachelor of Science in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science</a>, graduating <strong>1st-rank</strong> in my cohort. My background includes experience as an AI Engineer and Research Assistant, where I worked on various computer vision and deep learning applications before focusing on AI for healthcare.
-            </p>
-            <p style="margin-top: 1em;"> <!-- Có thể thêm khoảng cách nhỏ ở đây nếu cần -->
-                My academic profiles: <br>
-                <a href="mailto:nggtduc@gmail.com">Email</a>  /  
-                <a href="https://www.linkedin.com/in/ducnguyen4803/">LinkedIn</a>  /  
-                <a href="data/CV_NguyenTrongDuc.pdf">CV</a>  /  
-                <a href="https://github.com/trongduc-nguyen">Github</a>
-                <!-- / <a href="YOUR_GOOGLE_SCHOLAR_LINK">Google Scholar</a> -->
-            </p>
-        </div>
+                    <!-- Cột thông tin giới thiệu -->
+                    <div class="profile-text">
+                        <p>
+                            Hi! I am a PhD student in Computer Science at <strong><a href="https://vinuni.edu.vn/">VinUniversity</a></strong>, where my research focuses on developing <strong>Foundation Models for Healthcare</strong>. I am passionate about leveraging large-scale AI to solve critical challenges in medical imaging and diagnostics.
+                        </p>
+                        <p>
+                            I received my Bachelor of Science in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science</a>, graduating <strong>1st-rank</strong> in my cohort. My background includes experience as an AI Engineer and Research Assistant, where I worked on various computer vision and deep learning applications before focusing on AI for healthcare.
+                        </p>
+                        <p style="margin-top: 1em;">
+                            My academic profiles: <br>
+                            <a href="mailto:nggtduc@gmail.com">Email</a>  /  
+                            <a href="https://www.linkedin.com/in/ducnguyen4803/">LinkedIn</a>  /  
+                            <a href="data/CV_NguyenTrongDuc.pdf">CV</a>  /  
+                            <a href="https://github.com/nttrduc">Github</a>
+                        </p>
+                    </div>
 
-        <!-- Cột ảnh đại diện (25%) -->
-        <div style="flex: 1;">
-            <!-- Thay đổi quan trọng: Trả lại kích thước tự nhiên cho ảnh -->
-            <img src="images/avatar.jpg" alt="profile photo" style="width: 100%; height: auto; border-radius: 10px;">
-        </div>
-
-    </div>
-</div>
+                    <!-- Cột ảnh đại diện -->
+                    <div class="profile-image">
+                        <img src="images/avatar.jpg" alt="profile photo" style="width: 100%; height: auto; border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+            
             <hr>
 
             <!-- ======================= RESEARCH INTERESTS ======================= -->
@@ -74,14 +98,13 @@
             
             <h3 style="margin-bottom:10px;">2025</h3>
             <ul>
-                <li><span style="color:maroon; font-weight:bold;">[Aug '25]</span> I started a Ph.D. in Computer Science at <a href="https://smarthealth.vinuni.edu.vn/">VinUni-Illinois Smart Health Center, VinUniversity</a>, with full-ride scholarship</strong>.</li>
+                <li><span style="color:maroon; font-weight:bold;">[Aug '25]</span> [Aug. 2024] I started a Ph.D. in Computer Science at <a href="https://smarthealth.vinuni.edu.vn/">VinUni-Illinois Smart Health Center, VinUniversity</a>, with full-ride scholarship</strong>.</li>
                 <li><span style="color:maroon; font-weight:bold;">[Jul '25]</span> Graduated <strong>1st-rank</strong> in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science.</a></li> 
                 <li><span style="color:maroon; font-weight:bold;">[Feb '25]</span> Started my journey as an AI Engineer at <a href="https://apero.vn/en/">Apero Technologies Group</a>.</li> 
             </ul>
             
             <h3 style="margin-bottom:10px;">2024</h3>
             <ul>
-
                 <li><span style="color:maroon; font-weight:bold;">[Jun '24]</span> Received the <strong>First Prize</strong> at the Faculty's Science Conference at VNU-HUS.</li>
                 <li><span style="color:maroon; font-weight:bold;">[Apr '24]</span> Awarded the <strong>NUS Summer Science School Scholarship</strong> by the <a href="https://nus.edu.sg/">National University of Singapore</a>.</li>
             </ul>
@@ -104,6 +127,7 @@
                 </li>
             </ul>
 
+            
         </td>
     </tr>
 </tbody></table>
