@@ -1,142 +1,394 @@
-
-
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>Duc Nguyen</title>
+    <title>Duc Nguyen - PhD Student</title>
 
     <meta name="author" content="Duc Nguyen">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    <!-- Load Google Fonts: Inter (Hiện đại, sạch sẽ) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- ======================= THÊM CSS ĐỂ LÀM RESPONSIVE ======================= -->
     <style>
-        /* CSS cho bố cục mặc định (máy tính) */
-        .profile-container {
+        /* ================= GLOBAL STYLES ================= */
+        :root {
+            --primary-color: #0056b3; /* Màu xanh academic */
+            --accent-color: #b30000; /* Màu đỏ nhấn (VinUni/Sở thích) */
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --light-text: #666;
+            --border-color: #eaeaea;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #fafafa; /* Màu nền hơi xám nhẹ cho đỡ chói */
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Container chính giữ nội dung ở giữa */
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Đổ bóng nhẹ tạo chiều sâu */
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        h1, h2, h3 {
+            color: #111;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 22px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        /* ================= HEADER & PROFILE ================= */
+        .profile-section {
             display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        .role {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+        
+        .social-links a {
+            margin-right: 15px;
+            font-weight: 500;
+        }
+
+        .profile-photo-container {
+            flex-shrink: 0;
+            width: 220px;
+        }
+
+        .profile-photo {
             width: 100%;
-            align-items: flex-start; /* Căn đỉnh */
-            gap: 20px; /* Khoảng cách giữa 2 cột */
+            height: auto;
+            border-radius: 12px; /* Bo góc mềm mại */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            object-fit: cover;
         }
 
-        .profile-text {
-            flex: 3; /* Chiếm ~75% chiều rộng */
+        /* ================= RESEARCH INTERESTS ================= */
+        .interests-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+            padding-left: 20px;
+        }
+        .interests-list li {
+            margin-bottom: 5px;
+        }
+
+        /* ================= NEWS SECTION ================= */
+        .news-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-item {
             display: flex;
-            flex-direction: column;
+            margin-bottom: 15px;
+            align-items: baseline;
         }
 
-        .profile-image {
-            flex: 1; /* Chiếm ~25% chiều rộng */
+        .news-date {
+            width: 85px;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 14px;
+            text-align: right;
+            margin-right: 20px;
         }
 
-        /* CSS cho màn hình nhỏ (điện thoại, max-width: 768px) */
+        .news-content {
+            font-size: 15px;
+        }
+
+        /* ================= PUBLICATIONS SECTION ================= */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pub-item {
+            margin-bottom: 25px;
+            padding-left: 0;
+        }
+
+        .pub-title {
+            font-weight: 700;
+            font-size: 17px;
+            display: block;
+            margin-bottom: 4px;
+            color: #000;
+        }
+
+        .pub-authors {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        /* Highlight tên bạn */
+        .me {
+            font-weight: 600;
+            color: #000;
+            text-decoration: underline;
+            text-decoration-color: #ccc;
+        }
+
+        .pub-venue {
+            font-style: italic;
+            color: var(--light-text);
+            font-size: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #444;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .btn-link {
+            display: inline-block;
+            font-size: 12px;
+            border: 1px solid var(--border-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--light-text);
+            margin-left: 5px;
+            background: #f9f9f9;
+        }
+        
+        .btn-link:hover {
+            background: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* ================= FOOTER ================= */
+        .footer {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        /* ================= RESPONSIVE (MOBILE) ================= */
         @media (max-width: 768px) {
-            .profile-container {
-                flex-direction: column; /* Chuyển bố cục sang dạng cột (xếp chồng) */
+            body { padding: 20px 10px; }
+            .container { padding: 20px; }
+            
+            .profile-section {
+                flex-direction: column-reverse; /* Ảnh lên trên hoặc dưới tùy ý, ở đây để dưới text */
+                gap: 20px;
             }
+
+            .profile-photo-container {
+                width: 120px;
+                margin: 0 auto; /* Căn giữa ảnh trên mobile */
+            }
+            
+            .profile-info { text-align: left; }
+            .name { font-size: 28px; text-align: center; }
+            .role { text-align: center; margin-bottom: 25px;}
+            .social-links { text-align: center; }
+
+            .news-item { flex-direction: column; }
+            .news-date { text-align: left; margin-bottom: 2px; }
         }
     </style>
-    
 </head>
 
 <body>
 
-<table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-        <td style="padding:20px; padding-top:40px;">
+    <div class="container">
+        
+        <!-- HEADER / PROFILE SECTION -->
+        <header class="profile-section">
+            <div class="profile-info">
+                <h1 class="name">Duc Nguyen</h1>
+                <div class="role">PhD Student in Computer Science @ VinUniversity</div>
+                
+                <p>
+                    Hi! I am a PhD student at <strong><a href="https://vinuni.edu.vn/">VinUniversity</a></strong>, affiliated with the <a href="https://smarthealth.vinuni.edu.vn/">VinUni–Illinois Smart Health Center</a>. My research focuses on developing <strong>Foundation Models for Healthcare</strong>. I am passionate about leveraging large-scale AI to solve critical challenges in medical imaging and diagnostics.
+                </p>
+                <p>
+                    Previously, I graduated <strong>Valedictorian (1st-rank)</strong> with a B.S. in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science</a>. I have experience as an AI Engineer and Research Assistant in computer vision and deep learning.
+                </p>
 
-            <!-- Bố cục tổng thể cho phần giới thiệu -->
-            <div>
-                <!-- Dòng 1: Tên (khối riêng) -->
-                <p class="name" style="text-align:left; font-size:32px; margin-bottom:10px;">Duc Nguyen</p>
-
-                <!-- Dòng 2: Tiêu đề "About" (khối riêng) -->
-                <h2 style="margin-bottom: 10px;">About</h2>
-
-                <!-- Dòng 3: Bố cục Flexbox đã được thêm class -->
-                <div class="profile-container">
-
-                    <!-- Cột thông tin giới thiệu -->
-                    <div class="profile-text">
-                        <p>
-                            Hi! I am a PhD student in Computer Science at <strong><a href="https://vinuni.edu.vn/">VinUniversity</a></strong>, where my research focuses on developing <strong>Foundation Models for Healthcare</strong>. I am passionate about leveraging large-scale AI to solve critical challenges in medical imaging and diagnostics.
-                        </p>
-                        <p>
-                            I received my Bachelor of Science in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science</a>, graduating <strong>1st-rank</strong> in my cohort. My background includes experience as an AI Engineer and Research Assistant, where I worked on various computer vision and deep learning applications before focusing on AI for healthcare.
-                        </p>
-                        <p style="margin-top: 1em;">
-                            My academic profiles: <br>
-                            <a href="mailto:nggtduc@gmail.com">Email</a>  /  
-                            <a href="https://www.linkedin.com/in/ducnguyen4803/">LinkedIn</a>  /  
-                            <a href="data/CV_NguyenTrongDuc.pdf">CV</a>  /  
-                            <a href="https://github.com/trongduc-nguyen">Github</a>
-                        </p>
-                    </div>
-
-                    <!-- Cột ảnh đại diện -->
-                    <div class="profile-image">
-                        <img src="images/avatar.jpg" alt="profile photo" style="width: 100%; height: auto; border-radius: 10px;">
-                    </div>
+                <div class="social-links">
+                    <a href="mailto:nggtduc@gmail.com">Email</a>
+                    <a href="data/CV_NguyenTrongDuc.pdf">CV / Resume</a>
+                    <a href="https://scholar.google.com/">Google Scholar</a> <!-- Nên thêm nếu có -->
+                    <a href="https://github.com/trongduc-nguyen">Github</a>
+                    <a href="https://www.linkedin.com/in/ducnguyen4803/">LinkedIn</a>
                 </div>
             </div>
-            
-            <hr>
 
-            <!-- ======================= RESEARCH INTERESTS ======================= -->
-<h2>🔍 Research Interests</h2>
-<ul>
-    <li>Efficient & scalable <b>foundation models</b></li>
-    <li><b>Multimodal learning</b> for digital pathology and healthcare applications</li>
-    <li>AI-driven <b>precision medicine</b> and computational pathology</li>
-    <li><b>High-performance & distributed training</b> for large medical models</li>
-</ul>
+            <div class="profile-photo-container">
+                <!-- Thay đường dẫn ảnh của bạn vào đây -->
+                <img src="images/avatar.jpg" alt="Duc Nguyen" class="profile-photo">
+            </div>
+        </header>
 
-            <hr>
 
+        <!-- RESEARCH INTERESTS -->
+        <section>
+            <h2>Research Interests</h2>
+            <ul class="interests-list">
+                <li>Efficient & Scalable <b>Foundation Models</b></li>
+                <li><b>Multimodal Learning</b> for Digital Pathology</li>
+                <li>AI-driven <b>Precision Medicine</b></li>
+                <li><b>High-performance Distributed Training</b></li>
+            </ul>
+        </section>
+
+
+        <!-- NEWS -->
+        <section>
             <h2>News</h2>
-            
-            <h3 style="margin-bottom:10px;">2025</h3>
-            <ul>
-<li>
-  <span style="color:maroon; font-weight:bold;">[Sep '25]</span> 
-  I started my Ph.D. in Computer Science at 
-  <a href="https://smarthealth.vinuni.edu.vn/">VinUni–Illinois Smart Health Center, VinUniversity</a>, 
-  with a <b>fully funded scholarship</b>.
-</li>
-                <li><span style="color:maroon; font-weight:bold;">[Jul '25]</span> Graduated <strong>1st-rank</strong> in Data Science from <a href="https://english.hus.vnu.edu.vn/">VNU University of Science.</a></li> 
-            </ul>
-            
-            <h3 style="margin-bottom:10px;">2024</h3>
-            <ul>
-                <li><span style="color:maroon; font-weight:bold;">[Jun '24]</span> Received the <strong>First Prize</strong> at the Faculty's Science Conference at VNU-HUS.</li>
-                <li><span style="color:maroon; font-weight:bold;">[Apr '24]</span> Awarded the <strong>NUS Summer Science School Scholarship</strong> by the <a href="https://nus.edu.sg/">National University of Singapore</a>.</li>
-            </ul>
+            <div class="news-list">
+                
+                <div class="news-item">
+                    <div class="news-date">Sep 2025</div>
+                    <div class="news-content">
+                        Started my Ph.D. in Computer Science at <strong>VinUniversity</strong> with a fully funded scholarship.
+                    </div>
+                </div>
 
-            <hr>
+                <div class="news-item">
+                    <div class="news-date">Jul 2025</div>
+                    <div class="news-content">
+                        Graduated <strong>Valedictorian (1st-rank)</strong> in Data Science from VNU University of Science.
+                    </div>
+                </div>
 
-            <!-- ======================= PUBLICATIONS ======================= -->
-            <h2>Publications</h2>
-            <p style="font-size: smaller; color: #666;">C = Conference.</p>
-            <ul>
-                <li style="margin-bottom: 15px;">
-                    <strong>[C.2]</strong> <strong>Trong Duc Nguyen</strong>, Tien Dung Do, and Thanh Ha Do (2024). Automated Pseudo-Label Generation and Parallel Computing for Enhanced Few-Shot Medical Image Segmentation. In <em>Proceedings of the 2024 Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)</em>.[<a href="https://ieeexplore.ieee.org/document/10848783">Link</a>]
+                <div class="news-item">
+                    <div class="news-date">Jun 2024</div>
+                    <div class="news-content">
+                        Received the <strong>First Prize</strong> at the Faculty's Science Conference at VNU-HUS.
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-date">Apr 2024</div>
+                    <div class="news-content">
+                        Awarded the <strong>NUS Summer Science School Scholarship</strong> by the National University of Singapore.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- PUBLICATIONS -->
+        <section>
+            <h2>Selected Publications</h2>
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px;">* denotes equal contribution</p>
+            
+            <ul class="pub-list">
+                
+                <li class="pub-item">
+                    <span class="tag">APSIPA '24</span>
+                    <span class="pub-title">Automated Pseudo-Label Generation and Parallel Computing for Enhanced Few-Shot Medical Image Segmentation</span>
+                    <span class="pub-authors">
+                        <span class="me">Trong Duc Nguyen</span>, Tien Dung Do, Thanh Ha Do
+                    </span>
+                    <span class="pub-venue">
+                        Proceedings of the 2024 Asia Pacific Signal and Information Processing Association Annual Summit and Conference.
+                    </span>
+                    <div style="margin-top:5px;">
+                        <a href="https://ieeexplore.ieee.org/document/10848783" class="btn-link">Paper</a>
+                        <a href="#" class="btn-link">Code</a>
+                    </div>
                 </li>
-                <li style="margin-bottom: 15px;">
-                    <strong>[C.1]</strong> Minh Hieu Vu, The Son Phan, <strong>Trong Duc Nguyen</strong>, Du Tien Du, and Thanh Ha Do (2025). Enhanced Object Detection on Aerial Cityscapes via Augmentation and YOLO Variants. In <em>Proceedings of the 2025 IEEE International Conference on Image Processing (ICIP)</em>.
+
+                <li class="pub-item">
+                    <span class="tag">ICIP '25</span>
+                    <span class="pub-title">Enhanced Object Detection on Aerial Cityscapes via Augmentation and YOLO Variants</span>
+                    <span class="pub-authors">
+                        Minh Hieu Vu, The Son Phan, <span class="me">Trong Duc Nguyen</span>, Du Tien Du, Thanh Ha Do
+                    </span>
+                    <span class="pub-venue">
+                        Proceedings of the 2025 IEEE International Conference on Image Processing.
+                    </span>
+                    <div style="margin-top:5px;">
+                        <!-- Thêm link vào đây khi có -->
+                        <a href="#" class="btn-link">Paper</a>
+                    </div>
                 </li>
 
             </ul>
+        </section>
 
-            
-        </td>
-    </tr>
-</tbody></table>
-<div style="text-align: center; font-size: 12px; color: #888; margin-top: 40px; margin-bottom: 20px;">
-    Many thanks to platform by <a href="https://jonbarron.info/" target="_blank" style="color: #888;">Jon Barron</a>!
-</div>
+        <footer class="footer">
+            <p>Template inspired by Jon Barron. Last updated: November 2025.</p>
+        </footer>
+
+    </div>
+
 </body>
 </html>
